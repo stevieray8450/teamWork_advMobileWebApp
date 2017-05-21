@@ -39,7 +39,12 @@ $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_assoc($result)) {
         echo "<b>Created at: " . $row["CreateDate"]. "<br>";
         echo "<b>Text: " . $row["ItemText"]. "</b><br>";
-				echo "<b>Complete: " . $row["Finished"]. "</b><br>";
+				if ($row["Finished"] == TRUE)
+				{
+				echo "<b>Complete: True </b><br>";
+				else
+				}
+				echo "<b>Complete: False </b><br>";
 	}
 
 mysqli_close($conn);
