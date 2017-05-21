@@ -1,0 +1,57 @@
+<html>
+		<head>
+	<title>Find a record</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles/custom.css" />
+<link rel="stylesheet" href="themes/rasmussenthemeroller.min.css" />
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="javascript/storage.js"></script>
+</head>
+
+	<body>
+		<div id="page" data-role="page" data-theme="b" >
+			<div data-role="header" data-theme="b">
+                <h1>Find a record</h1>	
+           	</div>
+				
+  	<div data-role="content">
+	<?php
+$servername = "bonifs1dbserver.database.windows.net";
+$username = "bonifs1";
+$password = "2h40yxuvTIcg";
+$dbname = "bonifs1_DB";
+
+$completed = (isset($_POST['completed'])    ? $_POST['completed']   : '');
+             
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql= "SELECT CreatedAt, UpdatedAt, Text, Complete FROM ToDoItem WHERE completed = $completed ";
+$result = mysqli_query($conn, $sql);
+
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "<b>Created at: " . $row["CreatedAt"]. "<br>";
+        echo "<b>Updated at: " . $row["UpdatedAt"]. "</b><br>";
+        echo "<b>Text: " . $row["Text"]. "</b><br>";
+		echo "<b>Complete: " . $row["Complete"]. "</b><br>";
+
+	}
+	
+mysqli_close($conn);
+?>
+
+
+
+<div data-role="footer" data-theme="b">
+  <h4>YOUR APP NAME &copy; 2016</h4>
+</div>
+
+</body>
+</html>
