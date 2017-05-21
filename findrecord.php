@@ -33,10 +33,12 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql= "SELECT * FROM todoitem WHERE Finished = 1";
+$sql= "SELECT * FROM todoitem WHERE Finished = $completed";
 $result = mysqli_query($conn, $sql);
 
     while($row = mysqli_fetch_assoc($result)) {
+			$boolean = $mysql_data ? true : false;
+
         echo "<b>Created at: " . $row["CreateDate"]. "<br>";
         echo "<b>Text: " . $row["ItemText"]. "</b><br>";
 				echo "<b>Complete: " . $row["Finished"]. "</b><br>";
