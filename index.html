@@ -5,7 +5,7 @@
 <title>teamWork</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="stylesheet" href="themes/themeroller.css" />
-<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />	
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -28,14 +28,14 @@
         <li><a href="#teamCal" data-transition="pop">Team Calendar</a></li>
         <li><a href="#toDoList" data-transition="pop">To Do List</a></li>
     </ul>
-  </div>	
+  </div>
   <div data-role="footer">
     <h4>Boniface &copy;2016</h4>
   </div>
 </div>
 <!-- Record Time page-->
 <div data-role="page" id="recordTime" data-theme="a">
-  <div data-role="header" data-theme="a">      
+  <div data-role="header" data-theme="a">
     <div class="logo"><a href="index.html" target="_self" data-transition="fade"><img src="themes/images/logo.png" align="middle" alt="teamWork"/></a></div>
     Record Your Time
       	<div data-role="navbar" data-theme="a">
@@ -77,10 +77,10 @@
                 <input type="radio" name="preVacay" id="preVacay" value="" />
                 <label for="preVacay">Pre-approved Vacation</label>
               </fieldset>
-            </div>  
+            </div>
           <input type="submit" value="Submit" data-icon="check" />
         </form>
-	<!-- the button element below would ideally add a record in a database that would record the time as inputted by the user-->  
+	<!-- the button element below would ideally add a record in a database that would record the time as inputted by the user-->
 	<!-- for now, the button only links back to the recordTime page-->
 	</div>
   <div data-role="footer">
@@ -102,7 +102,7 @@
                 <li><a href="#teamCal" data-transition="pop">Team Calendar</a></li>
                 <li><a href="#toDoList" data-transition="pop">To Do List</a></li>
         	</ul>
-    	</div> 
+    	</div>
   </div>
   <!-- Ideally, the "x" value below would be pulled from a database (i.e. a table containing employees' PTO time available
   could be leveraged using an SELECT command (SQL))-->
@@ -139,7 +139,7 @@
         </div>
   </div>
   <div data-role="content">Your team's schedule can be seen below:</div>
-  <!-- Using a sort of imbedded calendar (ala Google Calendar, perhaps,) the work-team's departmental calendar would be displayed, 
+  <!-- Using a sort of imbedded calendar (ala Google Calendar, perhaps,) the work-team's departmental calendar would be displayed,
   allowing team members and managers to see when people are out of the office (for example)-->
   <form id="teamSchedule" name="teamSchedule" action="myFile.php" method="get">
     <div data-role="fieldcontain">
@@ -187,7 +187,7 @@
                 <option value="week3">Fiscal Year X, Feb.3-17</option></a>
               </select>
             </div>
-        <input type="submit" value="Submit" />   
+        <input type="submit" value="Submit" />
       </form>
   </div>
   <div data-role="footer">
@@ -195,7 +195,7 @@
   </div>
 </div>
 
-<!-- Team calendar page --> 
+<!-- Team calendar page -->
 <div data-role="page" id="teamCal" data-theme="a">
   <div data-role="header" data-theme="a">
       <div class="logo"><a href="index.html" target="_self" data-transition="fade"><img src="themes/images/logo.png" align="middle" alt="teamWork"/></a></div>
@@ -209,7 +209,7 @@
                 <li><a href="#teamCal" class="ui-btn-active">Team Calendar</a></li>
                 <li><a href="#toDoList" data-transition="pop">To Do List</a></li>
             </ul>
-   </div>    
+   </div>
   </div>
   <div data-role="content">Select your month:
   	<form id="calendar" name="calendar" action="myFile.php" method="get">
@@ -217,7 +217,7 @@
         <!-- selecting a month and year below and clicking submit would pull the data from a database, which
         would then be formatted to fit appropriately in the table/calendar formatted below -->
           <label for="month">Month:</label>
-          <input type="month" name="month" id="month" value=""  />   
+          <input type="month" name="month" id="month" value=""  />
         </div>
       <input type="submit" value="Submit" data-icon="check" />
       </form>
@@ -305,20 +305,21 @@
                 <li><a href="#teamCal" data-transition="pop">Team Calendar</a></li>
                 <li><a href="#toDoList" data-transition="pop">To Do List</a></li>
         	</ul>
-    	</div> 
+    	</div>
   </div>
   <div data-role="content"><br />
   <form id="toDoList" name="toDoList" action="findrecord.php" method="post">
   	<table width="400" border="2" cellspacing ="1" cellpadding="2">
-    	<tr> 
+    	<tr>
         	<td width="100">Completed</td>
-            <td><input name="completed" type="text" id="completed" /></td>
+            <td><button type="submit" form="toDoList"
+              value="Find all To Do Items">Find all To Do Items</button></td>
         </tr>
     </table>
    </form>
-         
+
   <hr>
-  	
+
   </div>
   <div data-role="footer">
     <h4>Boniface &copy;2016</h4>

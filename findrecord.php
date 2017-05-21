@@ -40,7 +40,7 @@ $result = mysqli_query($conn, $sql);
         echo "<b>Created at: " . $row["CreateDate"]. "<br>";
         echo "<b>Text: " . $row["ItemText"]. "</b><br>";
 				echo "<b>Complete: " . $row["Finished"]. "</b><br>";
-			}
+	}
 
 mysqli_close($conn);
 ?>
