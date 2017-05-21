@@ -14,18 +14,18 @@
 	<body>
 		<div id="page" data-role="page" data-theme="b" >
 			<div data-role="header" data-theme="b">
-                <h1>Find a record</h1>	
+                <h1>Find a record</h1>
            	</div>
-				
+
   	<div data-role="content">
 	<?php
-$servername = "bonifs1dbserver.database.windows.net";
-$username = "bonifs1";
+$servername = "bonifs1mysqlserver.mysql.database.azure.com";
+$username = "bonifs1@bonifs1mysqlserver";
 $password = "2h40yxuvTIcg";
-$dbname = "bonifs1_DB";
+$dbname = "bonifs1mysqldb";
 
-$completed = (isset($_POST['completed'])    ? $_POST['completed']   : '');
-             
+$completed = (isset($_POST['Finished'])    ? $_POST['Finished']   : '');
+
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
@@ -33,17 +33,16 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql= "SELECT CreatedAt, UpdatedAt, Text, Complete FROM ToDoItem WHERE completed = $completed ";
+$sql= "SELECT * FROM todoitem WHERE Finished = 1";
 $result = mysqli_query($conn, $sql);
 
     while($row = mysqli_fetch_assoc($result)) {
-        echo "<b>Created at: " . $row["CreatedAt"]. "<br>";
-        echo "<b>Updated at: " . $row["UpdatedAt"]. "</b><br>";
-        echo "<b>Text: " . $row["Text"]. "</b><br>";
-		echo "<b>Complete: " . $row["Complete"]. "</b><br>";
+        echo "<b>Created at: " . $row["CreateDate"]. "<br>";
+        echo "<b>Text: " . $row["ItemText"]. "</b><br>";
+				echo "<b>Complete: " . $row["Finished"]. "</b><br>";
 
 	}
-	
+
 mysqli_close($conn);
 ?>
 
