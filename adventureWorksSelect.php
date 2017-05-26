@@ -19,10 +19,10 @@
 
   	<div data-role="content">
 	<?php
-$servername = "bonifs1adventureworksserver.database.windows.net";
-$username = "bonifs1";
+$servername = "adventureworksbonifs1.mysql.database.azure.com";
+$username = "bonifs1@adventureworksbonifs1";
 $password = "2h40yxuvTIcg";
-$dbname = "bonifs1AdventureWorksDB";
+$dbname = "adventureworks";
 
 // $completed = (isset($_POST['Finished'])    ? $_POST['Finished']   : '');
 
@@ -33,18 +33,15 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql= "SELECT SalesLT.Product.ThumbNailPhoto, SalesLT.ProductCategory.Name,
-SalesLT.ProductCategory.ModifiedDate
-FROM SalesLT.ProductCategory
-JOIN SalesLT.Product ON
-SalesLT.Product.ProductCategoryID = SalesLT.ProductCategory.ProductCategoryID;";
+$sql= "SELECT LoginID, Title, HireDate FROM employee ORDER BY
+LoginID LIMIT 20";
 
 $result = mysqli_query($conn, $sql);
 
 			while($row = mysqli_fetch_assoc($result)) {
-        echo "<b>Thumbnail: " . $row["SalesLT.Product.ThumbNailPhoto"]. "<br>";
-        echo "<b>Text: " . $row["SalesLT.ProductCategory.Name"]. "</b><br>";
-				echo "<b>Modified Date: " . $row["SalesLT.ProductCategory.ModifiedDate"]. "</b><br>";
+        echo "<b>Thumbnail: " . $row["LoginID"]. "<br>";
+        echo "<b>Text: " . $row["Title"]. "</b><br>";
+				echo "<b>Modified Date: " . $row["HireDate"]. "</b><br>";
 	}
 
 mysqli_close($conn);
