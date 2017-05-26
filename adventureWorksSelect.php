@@ -39,9 +39,9 @@ LoginID LIMIT 20";
 $result = mysqli_query($conn, $sql);
 
 			while($row = mysqli_fetch_assoc($result)) {
-        echo "<b>Thumbnail: " . $row["LoginID"]. "<br>";
-        echo "<b>Text: " . $row["Title"]. "</b><br>";
-				echo "<b>Modified Date: " . $row["HireDate"]. "</b><br>";
+        echo "<b>Login ID: " . $row["LoginID"]. "<br>";
+        echo "<b>Title: " . $row["Title"]. "</b><br>";
+				echo "<b>Hire Date: " . $row["HireDate"]. "</b><br><br>";
 	}
 
 mysqli_close($conn);
