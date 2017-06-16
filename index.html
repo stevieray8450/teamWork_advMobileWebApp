@@ -7,6 +7,21 @@
 <link rel="stylesheet" href="themes/themeroller.css" />
 <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB_w4h2t66AbufUlsEy0HAxbx3qwnn1NCw",
+    authDomain: "notificationadvworks.firebaseapp.com",
+    databaseURL: "https://notificationadvworks.firebaseio.com",
+    projectId: "notificationadvworks",
+    storageBucket: "notificationadvworks.appspot.com",
+    messagingSenderId: "194782484215"
+  };
+  firebase.initializeApp(config);
+</script>
+
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
@@ -333,7 +348,7 @@
   </div>
 </div>
 
-<!-- ToDoList page-->
+<!-- AdventureWorks page-->
 <div data-role="page" id="adventureWorks" data-theme="a">
   <div data-role="header" data-theme="a">
       <div class="logo"><a href="index.html" target="_self" data-transition="fade"><img src="themes/images/logo.png" align="middle" alt="teamWork"/></a></div>
